@@ -2,7 +2,7 @@
 ##connect from rdp
 ##To Change Screen Resolution
 xrandr
-xrandr --output VGA-1 --mode 1280x1024
+#xrandr --output VGA-1 --mode 1280x1024
 
 
 sudo apt-get install emacs
@@ -12,8 +12,10 @@ cp .emacs ~/.emacs
 ##anacond ¼³Ä¡
 ##download
 ##https://docs.anaconda.com/anaconda/install/linux/
+
 cd ~/Downloads
-bash Anaconda~
+wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+bash Anaconda3-2020.07-Linux-x86_64.sh
 
 ###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
 conda install -c conda-forge/label/gcc7 pystan
