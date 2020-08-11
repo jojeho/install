@@ -6,4 +6,4 @@
 cd ~/
 unzip dump
 mongorestore dump
-
+rm dump.zip
