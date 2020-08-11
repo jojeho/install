@@ -20,8 +20,10 @@ bash   Anaconda3-2020.07-Linux-x86_64.sh
 
 ###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
 conda install -y -c conda-forge/label/gcc7 pystan
+exportPATH=~/anaconda3/bin:$PATH
 
-##gcc ¼³Ä¡
+##gcc ¼³Ä
+
 sudo apt update
 sudo apt install -y build-essential
 sudo apt-get install -y manpages-dev
