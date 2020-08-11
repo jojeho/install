@@ -62,6 +62,7 @@ cd ~/Downloads/
 unzip dump
 mongorestore dump
 
+reboot
 
 
 
