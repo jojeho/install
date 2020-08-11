@@ -14,5 +14,6 @@ sudo apt-get -y install xrdp
 sudo ufw allow 20
 sudo ufw allow 21
 
+
 reboot
 

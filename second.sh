@@ -1,4 +1,3 @@
-
 ##connect from rdp
 ##To Change Screen Resolution
 xrandr
@@ -13,9 +12,10 @@ cp .emacs ~/.emacs
 ##download
 ##https://docs.anaconda.com/anaconda/install/linux/
 
-cd ~/Downloads
+#cd ~/Downloads
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
-bash --yes --use-local Anaconda3-2020.07-Linux-x86_64.sh 
+bash --yes --use-local Anaconda3-2020.07-Linux-x86_64.sh
+rm Anaconda3-2020.07-Linux-x86_64.sh
 
 ###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
 conda install -y -c conda-forge/label/gcc7 pystan
@@ -33,13 +33,21 @@ sudo apt install -y mongodb
 
 conda install -y -c anaconda pymongo
 
+sudo apt-get install -y unzip
 
-##mogo restor
-##https://velog.io/@killi8n/Mongodb-%EB%8D%A4%ED%94%84%ED%95%98%EA%B3%A0-%EB%B0%B1%EC%97%85%ED%95%98%EA%B8%B0-gejmop2baz
-##mongorestore --host 127.0.0.1 --port 27017 -u°èÁ¤¸í -pºñ¹ø --drop ¿ø·¡µðºñ¿¡¼­ µå¶ø½ÃÅ³ µðºñ¸í --db ¼±ÅÃÀûÀ¸·Î º¹±¸ÇÏ·Á´Â db¸í "º¹±¸ÇÏ·Á´Â ´ýÇÁµÈ µð·ºÅÍ¸® À§Ä¡"
+cd ~/repo
+git clone https://github.com/jojeho/vs.git
 
-cd ~/Downloads/
+
+cd ~/
+unzip dump
 mongorestore dump
+rm dump.zip
+
+
+reboot
+
+
 
 
 
