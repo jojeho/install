@@ -15,5 +15,3 @@ sudo ufw allow 20
 sudo ufw allow 21
 
 
-reboot
-
