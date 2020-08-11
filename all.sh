@@ -31,9 +31,10 @@ cp .emacs ~/.emacs
 ##download
 ##https://docs.anaconda.com/anaconda/install/linux/
 
-cd ~/Downloads
+#cd ~/Downloads
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
-bash --yes --use-local Anaconda3-2020.07-Linux-x86_64.sh 
+bash --yes --use-local Anaconda3-2020.07-Linux-x86_64.sh
+rm Anaconda3-2020.07-Linux-x86_64.sh
 
 ###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
 conda install -y -c conda-forge/label/gcc7 pystan
