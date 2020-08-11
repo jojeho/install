@@ -1,0 +1,5 @@
+If your intent is to backup a remote computer’s HDD A via SSH to a single file that’s on your local computer’s HDD, you could do one of the following…
+
+run from local computer
+
+$ ssh user@remote "dd if=/dev/sda | gzip -1 -" | dd of=image.gz
