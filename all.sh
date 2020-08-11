@@ -57,10 +57,6 @@ sudo apt-get install -y unzip
 cd ~/repo
 git clone https://github.com/jojeho/vs.git
 
-reboot
-
-
-
 
 
 
