@@ -45,8 +45,6 @@ mongorestore dump
 rm dump.zip
 
 
-reboot
-
 
 
 
