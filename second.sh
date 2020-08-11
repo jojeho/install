@@ -5,7 +5,7 @@ xrandr
 #xrandr --output VGA-1 --mode 1280x1024
 
 
-sudo apt-get install emacs
+sudo apt-get install -y emacs
 cp .emacs ~/.emacs
 
 
@@ -15,15 +15,15 @@ cp .emacs ~/.emacs
 
 cd ~/Downloads
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
-bash Anaconda3-2020.07-Linux-x86_64.sh
+bash Anaconda3-2020.07-Linux-x86_64.sh -y
 
 ###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
-conda install -c conda-forge/label/gcc7 pystan
+conda install -y -c conda-forge/label/gcc7 pystan
 
 ##gcc ¼³Ä¡
 sudo apt update
-sudo apt install build-essential
-sudo apt-get install manpages-dev
+sudo apt install -y build-essential
+sudo apt-get install -y manpages-dev
 
 ##mongo ¼³Ä¡
 ##https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
@@ -31,7 +31,7 @@ sudo apt-get install manpages-dev
 sudo apt update
 sudo apt install -y mongodb
 
-conda install -c anaconda pymongo
+conda install -y -c anaconda pymongo
 
 
 ##mogo restor

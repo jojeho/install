@@ -7,7 +7,7 @@ apt-get install -y lubuntu-desktop
 
 
 ##xrdp ¼³Ä¡
-sudo apt-get install xrdp
+sudo apt-get -y install xrdp
 
 
 ##¹æÈ­º® ÇØÁ¦
