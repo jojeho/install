@@ -55,6 +55,7 @@ conda install -y -c anaconda pymongo
 
 rm Anaconda3-2020.07-Linux-x86_64.sh
 
+sudo apt-install gnome-terminal
 sudo apt-get install -y unzip
 
 cd ~/repo
