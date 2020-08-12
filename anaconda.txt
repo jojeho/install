@@ -1,4 +1,4 @@
-
+수동 
 
 ##gcc for anaconda
 sudo apt update
