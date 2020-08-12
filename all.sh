@@ -16,48 +16,41 @@ sudo ufw allow 21
 
 #reboot
 
-
 ##connect from rdp
 ##To Change Screen Resolution
-xrandr
+#xrandr
 #xrandr --output VGA-1 --mode 1280x1024
 
-
+################ utlity program
 sudo apt-get install -y emacs
 cp .emacs ~/.emacs
 
 sudo apt-install gnome-terminal
 sudo apt-get install -y unzip
+sudo apt update
+
+##mongo
+##https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
+sudo apt install -y mongodb
 
 cd ~/repo
 git clone https://github.com/jojeho/vs.git
 
-##anacond ¼³Ä¡
-##download
-##https://docs.anaconda.com/anaconda/install/linux/
 
-#cd ~/Downloads
+##########  anaconda
+##https://docs.anaconda.com/anaconda/install/linux/
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 bash   Anaconda3-2020.07-Linux-x86_64.sh
 exportPATH=~/anaconda3/bin:$PATH
 
-###conda install -c conda-forge pystan »õ·Î¿î ÄÜ¼ÖÃ¢¿¡¼­ ½ÇÇàÇØ¾ß µÊ
 conda install -y -c conda-forge/label/gcc7 pystan
 
-##gcc ¼³Ä¡
+##gcc for anaconda
 sudo apt update
 sudo apt install -y build-essential
 sudo apt-get install -y manpages-dev
 
-##mongo ¼³Ä¡
-##https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
-
-sudo apt update
-sudo apt install -y mongodb
-
 conda install -y -c anaconda pymongo
-
-
 rm Anaconda3-2020.07-Linux-x86_64.sh
 
 
