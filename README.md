@@ -1,6 +1,6 @@
 # install
 
-mongodb change dbpath
+#### mongodb change dbpath
 
 /var/lib/mongodb 에서 파일 복사 
 
