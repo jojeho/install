@@ -123,6 +123,18 @@
 
 
 
+;;; install stan
+;;M-x package-refresh-contents [RET]
+
+;;M-x package-install [RET] stan-mode [RET]
+;;M-x package-install [RET] company-stan [RET]
+;;M-x package-install [RET] eldoc-stan [RET]
+;;M-x package-install [RET] flycheck-stan [RET]
+;;M-x package-install [RET] stan-snippets [RET]
+;;If the installation does not work, try refreshing the package list:
+;;M-x package-refresh-contents [RET]
+
+
 ;;; stan-mode.el
 (use-package stan-mode
   :mode ("\\.stan\\'" . stan-mode)
