@@ -9,8 +9,8 @@ sudo apt-get -y install xrdp
 ##SSH 포트 22번 허용
 sudo ufw allow 3389/tcp
 
+sudo /etc/init.d/xrdp restart
+
 sudo apt-get update
 sudo apt-get install -y emacs
 cp .emacs ~/.emacs
-
-reboot
