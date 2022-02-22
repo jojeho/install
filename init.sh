@@ -1,6 +1,5 @@
 apt-get update
-apt-get install -y lubuntu-desktop
-
+sudo apt-get install ubuntu-desktop
 
 ##xrdp ¼³Ä¡
 sudo apt-get -y install xrdp
