@@ -3,7 +3,7 @@
 
 
 apt-get update
-apt-get install -y lubuntu-desktop
+apt-get install -y ubuntu-desktop
 
 
 ##xrdp ¼³Ä¡
