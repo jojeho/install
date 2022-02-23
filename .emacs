@@ -41,6 +41,7 @@
 ;; This sets up the load path so that we can override it
 (package-initialize)
 
+(require 'use-package)
 
 (use-package ido 
   :init
