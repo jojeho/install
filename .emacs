@@ -72,12 +72,6 @@
   (elpy-enable)
   (setq elpy-rpc-python-command "python3")
   (setq elpy-rpc-backend "jedi")
-  (elpy-use-cpython (or (executable-find "python3")
-                        (executable-find "/usr/bin/python3")
-                        (executable-find "/usr/local/bin/python3")
-                        "python3"))
-  ;; (elpy-use-ipython)
-  (setq python-shell-interpreter-args "--simple-prompt -i")
   (add-hook 'python-mode-hook (lambda ()
                               (setq indent-tabs-mode nil))))
  
