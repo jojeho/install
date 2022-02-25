@@ -7,6 +7,8 @@
 ; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -21,11 +23,6 @@
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
-
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             t)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -66,17 +63,93 @@
 
 
 
-(use-package elpy
-  :ensure t
-  :config
-  (elpy-enable)
-  (setq elpy-rpc-python-command "python3")
-  (setq elpy-rpc-backend "jedi")
-  (add-hook 'python-mode-hook (lambda ()
-                              (setq indent-tabs-mode nil))))
+;; (use-package elpy
+;;     :bind
+;;     (:map elpy-mode-map
+;;           ("C-M-n" . elpy-nav-forward-block)
+;;           ("C-M-p" . elpy-nav-backward-block))
+;;     :hook ((elpy-mode . flycheck-mode)
+;;            (elpy-mode . (lambda ()
+;;                           (set (make-local-variable 'company-backends)
+;;                                '((elpy-company-backend :with company-yasnippet))))))
+;;     :init
+;;     (elpy-enable)
+;;     :config
+;;     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;     ; fix for MacOS, see https://github.com/jorgenschaefer/elpy/issues/1550
+;;     (setq elpy-shell-echo-output nil)
+;;     (setq elpy-rpc-python-command "python3")
+;;     (setq elpy-rpc-timeout 2))
+
+
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+        ("\\.wsgi$" . python-mode)
+  :interpreter ("python" . python-mode)
  
-(use-package ein
-  :ensure t)
+  :init
+  (setq-default indent-tabs-mode nil)
+ 
+  :config
+  (setq python-indent-offset 4)
+  ;; TODO pyvenv
+  (setq flycheck-python-pycompile-executable
+        (or (executable-find "python3")
+            (executable-find "/usr/bin/python3")
+            (executable-find "/usr/local/bin/python3")
+            "python"))
+  (setq flycheck-python-pylint-executable
+        (or (executable-find "pylint3")
+            (executable-find "/usr/bin/pylint3")
+            (executable-find "/usr/local/bin/pylint3")
+            "pyline"))
+  (setq flycheck-python-flake8-executable
+        (or (executable-find "flake8")
+            (executable-find "/usr/bin/flake8")
+            (executable-find "/usr/local/bin/flake8")
+            "flake8")))
+
+
+(use-package anaconda-mode
+  :ensure t
+  :diminish anaconda-mode
+  :defer t
+  :init (progn
+          (add-hook 'python-mode-hook #'anaconda-mode)
+          (add-hook 'python-mode-hook #'anaconda-eldoc-mode)))
+ 
+(use-package company-anaconda
+  :ensure t
+  :commands (company-anaconda)
+  :after company
+  :init (add-to-list 'company-backends #'company-anaconda))
+
+
+
+;(use-package elpy
+;  :ensure t
+;  :defer t
+;  :init
+;  (advice-add 'python-mode :before 'elpy-enable))
+
+;(use-package elpy
+;     :ensure t
+;     :init
+;     (elpy-enable))
+
+
+
+;(use-package elpy
+;  :ensure t
+;  :config
+;  (elpy-enable)
+;  (setq elpy-rpc-python-command "python3")
+;  (setq elpy-rpc-backend "jedi")
+; (add-hook 'python-mode-hook (lambda ()
+;                              (setq indent-tabs-mode nil))))
+ 
+;(use-package ein
+;  :ensure t)
 
 
 
@@ -92,7 +165,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(stan-snippets flycheck-stan eldoc-stan company-stan stan-mode use-package)))
+   '(elpygen stan-snippets flycheck-stan eldoc-stan company-stan stan-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -171,7 +244,3 @@
   :config
   ;; No configuration options as of now.
   )
-
-
-
-
