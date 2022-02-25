@@ -32,13 +32,14 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/")
              t)
 
-(package-initialize)
+
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
 
 
 ;; This sets up the load path so that we can override it
+(package-initialize)
 
 (require 'use-package)
 
@@ -64,40 +65,24 @@
                 ido-temp-list))))))
 
 
-(use-package python
+
+(use-package elpy
   :ensure t
-  :defer t
-  :mode ("\\.py\\'" . python-mode)
-  )
-
-(setq python-shell-interpreter "python")
-
-(use-package python
-  :mode ("\\.py\\'" . python-mode)
-        ("\\.wsgi$" . python-mode)
-  :interpreter ("python" . python-mode)
- 
-  :init
-  (setq-default indent-tabs-mode nil)
- 
   :config
-  (setq python-indent-offset 4)
-  ;; TODO pyvenv
-  (setq flycheck-python-pycompile-executable
-        (or (executable-find "python3")
-            (executable-find "/usr/bin/python3")
-            (executable-find "/usr/local/bin/python3")
-            "python"))
-  (setq flycheck-python-pylint-executable
-        (or (executable-find "pylint3")
-            (executable-find "/usr/bin/pylint3")
-            (executable-find "/usr/local/bin/pylint3")
-            "pyline"))
-  (setq flycheck-python-flake8-executable
-        (or (executable-find "flake8")
-            (executable-find "/usr/bin/flake8")
-            (executable-find "/usr/local/bin/flake8")
-            "flake8")))
+  (elpy-enable)
+  (setq elpy-rpc-python-command "python3")
+  (setq elpy-rpc-backend "jedi")
+  (elpy-use-cpython (or (executable-find "python3")
+                        (executable-find "/usr/bin/python3")
+                        (executable-find "/usr/local/bin/python3")
+                        "python3"))
+  ;; (elpy-use-ipython)
+  (setq python-shell-interpreter-args "--simple-prompt -i")
+  (add-hook 'python-mode-hook (lambda ()
+                              (setq indent-tabs-mode nil))))
+ 
+(use-package ein
+  :ensure t)
 
 
 
@@ -112,7 +97,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (use-package))))
+ '(package-selected-packages
+   '(stan-snippets flycheck-stan eldoc-stan company-stan stan-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -193,17 +179,5 @@
   )
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (stan-snippets flycheck-stan eldoc-stan company-stan stan-mode use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
