@@ -1,9 +1,9 @@
 수동 
 
 ##gcc for anaconda
-sudo apt update
-sudo apt install -y build-essential
-sudo apt-get install -y manpages-dev
+#sudo apt update
+#sudo apt install -y build-essential
+#sudo apt-get install -y manpages-dev
 
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 sudo bash   Anaconda3-2020.07-Linux-x86_64.sh
