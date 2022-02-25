@@ -1,6 +1,6 @@
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install ubuntu-desktop
+sudo apt-get -y install ubuntu-desktop
 
 ##xrdp ¼³Ä¡
 sudo apt-get -y install xrdp
