@@ -12,6 +12,7 @@ sudo ufw allow 3389/tcp
 
 sudo /etc/init.d/xrdp restart
 
-sudo systemctl status xrdp
+sudo systemctl enable xrdp
+sudo systemctl start xrdp
 
 reboot
